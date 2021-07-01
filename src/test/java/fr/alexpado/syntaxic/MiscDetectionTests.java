@@ -22,7 +22,8 @@ public class MiscDetectionTests {
 
         Assertions.assertTrue(matchingResult.isPresent());
         IMatchingResult<Integer> result = matchingResult.get();
-        Assertions.assertEquals(1, result.getIdentifier());
+
+        Assertions.assertEquals(1, (int) result.getIdentifier());
     }
 
     @Test
@@ -34,7 +35,7 @@ public class MiscDetectionTests {
 
         Assertions.assertTrue(matchingResult.isPresent());
         IMatchingResult<Integer> result = matchingResult.get();
-        Assertions.assertEquals(1, result.getIdentifier());
+        Assertions.assertEquals(1, (int) result.getIdentifier());
     }
 
     @Test
@@ -46,7 +47,7 @@ public class MiscDetectionTests {
 
         Assertions.assertTrue(matchingResult.isPresent());
         IMatchingResult<Integer> result = matchingResult.get();
-        Assertions.assertEquals(2, result.getIdentifier());
+        Assertions.assertEquals(2, (int) result.getIdentifier());
     }
 
 }

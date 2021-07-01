@@ -21,7 +21,7 @@ public class RegexCompletionTests {
         ISyntaxService<Integer>            service = new SyntaxService<>(REGEX_INPUT);
         Optional<IMatchingResult<Integer>> results = service.getMatchingResult("regex 5547");
         assertTrue(results.isPresent());
-        assertEquals(1, results.get().getIdentifier());
+        assertEquals(1, (int) results.get().getIdentifier());
     }
 
     @Test
@@ -31,7 +31,7 @@ public class RegexCompletionTests {
         ISyntaxService<Integer>            service = new SyntaxService<>(REGEX_INPUT);
         Optional<IMatchingResult<Integer>> results = service.getMatchingResult("regex aabbcc");
         assertTrue(results.isPresent());
-        assertEquals(2, results.get().getIdentifier());
+        assertEquals(2, (int) results.get().getIdentifier());
     }
 
     @Test
@@ -41,7 +41,7 @@ public class RegexCompletionTests {
         ISyntaxService<Integer>            service = new SyntaxService<>(REGEX_INPUT);
         Optional<IMatchingResult<Integer>> results = service.getMatchingResult("regex strict");
         assertTrue(results.isPresent());
-        assertEquals(3, results.get().getIdentifier());
+        assertEquals(3, (int) results.get().getIdentifier());
     }
 
 }
