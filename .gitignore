@@ -2,3 +2,5 @@
 build/
 .idea/*
 !.idea/runConfigurations
+
+secret.properties
