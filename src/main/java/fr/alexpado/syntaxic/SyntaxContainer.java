@@ -8,6 +8,10 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
+/**
+ * A SyntaxContainer is a class handling a group of {@link ISyntax} representing a command. It can check if the group
+ * matches a user input and even completes it when available.
+ */
 public class SyntaxContainer implements ISyntaxContainer {
 
     private final List<ISyntax>       syntaxList;
@@ -19,6 +23,7 @@ public class SyntaxContainer implements ISyntaxContainer {
      * Create a new instance of this {@link ISyntaxContainer} implementation.
      *
      * @param syntaxList A {@link List} of {@link ISyntax}
+     * @param order      The order (priority) of the {@link ISyntaxContainer}.
      */
     public SyntaxContainer(List<ISyntax> syntaxList, int order) {
 

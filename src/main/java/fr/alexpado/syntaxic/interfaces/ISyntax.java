@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * @author alexpado
+ * Interface representing a specific "word" syntax. Every class implementing this interface can be used as rule that
+ * will change the behaviour of each {@link ISyntaxContainer} and {@link ISyntaxService}.
  */
 public interface ISyntax {
 

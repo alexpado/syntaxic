@@ -10,11 +10,24 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The FillingSyntax represents an {@link ISyntax} that will match everything that goes through it until the end of a
+ * user input.
+ * <p>
+ * This is a very special {@link ISyntax} as this one take more than one "unit" in an {@link ISyntaxContainer}.
+ * <p>
+ * A FillingSyntax is represented by a name ending with 3 dots (ex: <code>syntax...</code>).
+ */
 public class FillingSyntax implements ISyntax {
 
     private final     String name;
     private @Nullable String lastMatch;
 
+    /**
+     * Create a new instance of this {@link ISyntax} implementation.
+     *
+     * @param name The name of this {@link ISyntax}.
+     */
     public FillingSyntax(String name) {
 
         this.name      = SyntaxService.getName(name, "", "...");

@@ -1,10 +1,20 @@
 package fr.alexpado.syntaxic.interfaces;
 
+import fr.alexpado.syntaxic.SyntaxService;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * Interface representing a matching and completion service. You can implement this interface yourself, but this will
+ * defeat the purpose of this library itself.
+ * <p>
+ * If you want to override some features of Syntaxic, you may want to override methods of {@link SyntaxService}.
+ *
+ * @param <T> Type of the identifier. An identifier can be anything, but should be easily distinguishable from other
+ *            identifiers.
+ */
 public interface ISyntaxService<T> {
 
     /**

@@ -12,12 +12,29 @@ import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * The RegexSyntax represents an {@link ISyntax} that will match a provided regex.
+ * <p>
+ * By design, {@link #complete(String)} will always return an  empty list.
+ * <p>
+ * A RegexSyntax is represented by a name, a colon and a regex, everything being between slashes (ex:
+ * <code>/syntax:[0-9]+/...</code>).
+ * <p>
+ * You can also use regex group to capture only a part of the matched string (it will always take the last matched
+ * group). Ex: /syntax:([0-9])[ab]?/ will match any number followed by an optional 'a' or 'b', but will only 'memorize'
+ * the number.
+ */
 public class RegexSyntax implements ISyntax {
 
     private final     String  name;
     private final     Pattern pattern;
     private @Nullable String  lastMatch;
 
+    /**
+     * Create a new instance of this {@link ISyntax} implementation.
+     *
+     * @param name The name of this {@link ISyntax}.
+     */
     public RegexSyntax(String name) {
 
 

@@ -10,16 +10,40 @@ import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+/**
+ * Main class of interest within the Syntaxic library.
+ *
+ * A SyntaxService allow to fetch, match and complete a user input based on multiple {@link ISyntaxContainer}.
+ *
+ * @param <T> Type of the identifier. An identifier can be anything, but should be easily distinguishable from other
+ *            identifiers.
+ */
 public class SyntaxService<T> implements ISyntaxService<T> {
 
     private static final Pattern                  MULTIPLE_SPACES = Pattern.compile(" +");
     private final        Map<T, ISyntaxContainer> identifierMap;
 
+    /**
+     * Create a new instance of this {@link ISyntaxService} implementation.
+     *
+     * @param identifierMap A map associating the identifier to its {@link ISyntaxContainer}.
+     */
     public SyntaxService(Map<T, ISyntaxContainer> identifierMap) {
 
         this.identifierMap = identifierMap;
     }
 
+    /**
+     * Retrieve the extracted name from the provided value.
+     *
+     * @param value The value from which the name should be extracted.
+     * @param start The string that should be at the start of the value.
+     * @param end   The string that should be at the end of the value.
+     *
+     * @return The name extracted from the value by removing <code>start</code> and <code>end</code>.
+     *
+     * @throws IllegalArgumentException Thrown if {@link #isEncapsulated(String, String, String)} returns false.
+     */
     public static String getName(String value, String start, String end) {
 
         if (isEncapsulated(value, start, end)) {
@@ -28,6 +52,15 @@ public class SyntaxService<T> implements ISyntaxService<T> {
         throw new IllegalArgumentException("Invalid name.");
     }
 
+    /**
+     * Check if the provided value is between the two other parameters (start & end).
+     *
+     * @param value The value to check
+     * @param start The string that should be at the start of the value.
+     * @param end   The string that should be at the end of the value.
+     *
+     * @return True if the value starts with <code>start</code> and ends with <code>end</code>.
+     */
     public static boolean isEncapsulated(String value, String start, String end) {
 
         return value.startsWith(start) && value.endsWith(end) && (value.length() - start.length() - end.length()) > 0;

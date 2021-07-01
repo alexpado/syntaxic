@@ -10,11 +10,24 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The EagerSyntax represents an {@link ISyntax} that will match everything that goes through it.
+ * <p>
+ * By design, {@link #isMatching(String)} will always return true and {@link #complete(String)} will always return an
+ * empty list.
+ * <p>
+ * An EagerSyntax is represented by a name between brackets (ex: <code>[syntax]</code>).
+ */
 public class EagerSyntax implements ISyntax {
 
     private final     String name;
     private @Nullable String lastMatch;
 
+    /**
+     * Create a new instance of this {@link ISyntax} implementation.
+     *
+     * @param name The name of this {@link ISyntax}.
+     */
     public EagerSyntax(String name) {
 
         this.name      = SyntaxService.getName(name, "[", "]");

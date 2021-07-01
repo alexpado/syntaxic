@@ -10,12 +10,23 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+/**
+ * The SelectiveSyntax represents an {@link ISyntax} that will match only a set of predefined values.
+ * <p>
+ * A SelectiveSyntax is represented by a name between curly brackets (ex: <code>{syntax}</code>).
+ */
 public class SelectiveSyntax implements ISyntax {
 
     private final     String       name;
     private final     List<String> values;
     private @Nullable String       lastMatch;
 
+    /**
+     * Create a new instance of this {@link ISyntax} implementation.
+     *
+     * @param name   The name of this {@link ISyntax}.
+     * @param values The list of possible values for this {@link ISyntax}.
+     */
     public SelectiveSyntax(String name, List<String> values) {
 
         this.name      = SyntaxService.getName(name, "{", "}");

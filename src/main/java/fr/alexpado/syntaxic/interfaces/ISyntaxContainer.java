@@ -1,12 +1,17 @@
 package fr.alexpado.syntaxic.interfaces;
 
+import fr.alexpado.syntaxic.SyntaxContainer;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.Map;
 
 /**
- * @author alexpado
+ * Interface representing a group of {@link ISyntax} used to describe a command. You can implement this interface
+ * yourself, but this will defeat the purpose of this library itself.
+ * <p>
+ * If you want to override the behavior of the matching or completion features, you may want to override some methods of
+ * {@link SyntaxContainer}.
  */
 public interface ISyntaxContainer extends Comparable<ISyntaxContainer> {
 

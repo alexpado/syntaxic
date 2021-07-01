@@ -9,11 +9,20 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The WordSyntax represents an {@link ISyntax} that will match only a predefined word, which is the name of the syntax
+ * itself.
+ */
 public class WordSyntax implements ISyntax {
 
     private final     String name;
     private @Nullable String lastMatch;
 
+    /**
+     * Create a new instance of this {@link ISyntax} implementation.
+     *
+     * @param name The name of this {@link ISyntax}.
+     */
     public WordSyntax(String name) {
 
         this.name      = name;

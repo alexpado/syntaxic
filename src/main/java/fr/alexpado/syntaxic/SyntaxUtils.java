@@ -54,13 +54,15 @@ public final class SyntaxUtils {
     /**
      * Convert the provided string representing {@link ISyntax}es into the corresponding {@link ISyntaxContainer}.
      *
-     * @param command The representation to convert.
+     * @param options        The {@link Map} containing the list of parameters available for a {@link SelectiveSyntax}.
+     * @param representation The representation to convert.
+     * @param order          The order (priority) of the {@link ISyntaxContainer}.
      *
      * @return An {@link ISyntaxContainer} implementation.
      */
-    public static ISyntaxContainer toContainer(Map<String, List<String>> options, String command, int order) {
+    public static ISyntaxContainer toContainer(Map<String, List<String>> options, String representation, int order) {
 
-        Collection<String> rawSyntaxList = Arrays.asList(command.trim().split(" "));
+        Collection<String> rawSyntaxList = Arrays.asList(representation.trim().split(" "));
         return new SyntaxContainer(toSyntax(options, rawSyntaxList), order);
     }
 }
